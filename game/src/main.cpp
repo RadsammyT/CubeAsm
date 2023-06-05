@@ -11,12 +11,16 @@
 #include <iostream>
 #include <vector>
 #include <rlImGui.h>
+#include <rcamera_blender.h>
 
-std::vector<Cube> cubes = {
-	Cube {
-		Vector3 {0,0,0},
-		Vector3 {1,1,1},
-		WHITE
+std::vector<Entity> cubes = {
+	Entity {
+		TYPE_CUBE,
+		Cube {
+			Vector3{0,0,0},
+			Vector3{1,1,1},
+			WHITE
+		}
 	}
 };
 Config cfg;
@@ -31,10 +35,13 @@ Camera3D cam = {
 
 };
 
+BlenderCamera bcam = CreateBlenderCamera();
 //Debug Vars
 float DBG_Indent = 0.0f;
 
 int main() {
+
+	bcam.freeFly = true;
 	SetConfigFlags(FLAG_VSYNC_HINT);
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 	InitWindow(1000, 1000, "YEEHAW");
@@ -60,7 +67,7 @@ int main() {
 
 		}
 		if(cameraMovement){
-			UpdateCamera(&cam, CAMERA_FREE);
+			BlenderCameraUpdate(&bcam);
 		}
 
 			BeginDrawing();
@@ -69,10 +76,21 @@ int main() {
 			DrawFPS(0,0);
 
 			//DrawText("Hello World", 0, 20, 20, WHITE);
-			BeginMode3D(cam); 
+			BeginMode3D(bcam.camera); 
 				DrawGrid(15, 1.0f);
-				for(Cube c : cubes) {
-					DrawCubeV(c.pos, c.size, c.color);
+				for(Entity c : cubes) {
+					switch(c.type) {
+						case TYPE_CUBE:
+							DrawCubeV(c.obj.cube.pos, c.obj.cube.size, c.obj.cube.color);
+							break;
+						case TYPE_SPHERE:
+							DrawSphereEx(c.obj.sphere.pos, c.obj.sphere.rad, c.obj.sphere.rings, c.obj.sphere.slices, c.obj.sphere.color);
+							//rings and slices when initing are floats "bit-casted" as an int so it looks ridiculously large
+							break;
+						case TYPE_CYLINDER:
+							DrawCylinderEx(c.obj.cylinder.startPos, c.obj.cylinder.endPos, c.obj.cylinder.startRadius, c.obj.cylinder.endRadius, c.obj.cylinder.sides, c.obj.cylinder.color);
+							break;
+					}
 				}
 			EndMode3D();
 
@@ -84,21 +102,73 @@ int main() {
 					bool open = true;
 					ImGui::ShowDemoWindow(&open);
 				}
-				ImGui::Begin("Cube Assembler - by RadsammyT");
-					ImGui::BeginTabBar("IM_LIBBING!!!!!!!!!!!!!!!!!!!!!!!!");
+				ImGui::Begin("Cube Assembler - by RadsammyT", NULL, ImGuiWindowFlags_MenuBar);
+					
+					if(ImGui::BeginMenuBar()) {
+						if(ImGui::BeginMenu("New")) {
+
+							if(ImGui::MenuItem("Cube")) {
+								cubes.push_back(
+									Entity {
+										TYPE_CUBE,
+										Cube { Vector3{0,0,0}, Vector3{1,1,1}, WHITE}
+									}		
+								);
+							}
+							if(ImGui::MenuItem("Sphere")) {
+								Sphere dummy = { Vector3{0,0,0},4,10,10,WHITE};
+								cubes.push_back(
+									Entity {
+										.type = TYPE_SPHERE,
+										.obj = { .sphere = dummy }
+									}
+								);
+							}
+							ImGui::EndMenu();
+						}
+						ImGui::EndMenuBar();
+					}
+
+					if(ImGui::BeginTabBar("IM_LIBBING!!!!!!!!!!!!!!!!!!!!!!!!")) {
 						if(ImGui::BeginTabItem("Cube List")) {
 							for(int i = 0; i < cubes.size(); i++) {
 								if(ImGui::Button(TextFormat("%d) Delete", i))) {
 									cubes.erase(cubes.begin() + i);
 								}
-								ImGui::SameLine();
-								ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d", i), &cubes[i].pos.x, cfg.dragDelta);
-								ImGui::Indent(79.0f);
-								ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_SIZE_%d", i), &cubes[i].size.x, cfg.dragDelta);
+								switch(cubes[i].type) {
+									case TYPE_CUBE:
+										ImGui::SameLine();
+										ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d", i), &cubes[i].obj.cube.pos.x, cfg.dragDelta);
+										ImGui::Indent(79.0f);
+										ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_SIZE_%d", i), &cubes[i].obj.cube.size.x, cfg.dragDelta);
+										break;
+
+									case TYPE_SPHERE:
+										ImGui::SameLine();
+										ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d" , i), &cubes[i].obj.sphere.pos.x, cfg.dragDelta);
+										ImGui::Indent(79);
+										ImGui::DragFloat(TextFormat("##CUBE_LIST_DRAG_RAD_%d", i), &cubes[i].obj.sphere.rad, cfg.dragDelta);
+										ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_RING_%d", i), &cubes[i].obj.sphere.rings);
+										ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_SLICE_%d", i), &cubes[i].obj.sphere.slices);
+										break;
+
+									case TYPE_CYLINDER:
+										ImGui::Text("Unimplemented");
+										break;
+								}
+								ImGui::Unindent(79);
+
 							}
 							ImGui::EndTabItem();
 						}
-					ImGui::EndTabBar();
+
+						if(ImGui::BeginTabItem("Settings")) {
+							ImGui::DragFloat("Cube List Drag Delta", &cfg.dragDelta, 0.1);
+							ImGui::EndTabItem();
+						}
+						ImGui::EndTabBar();
+					}
+					
 				ImGui::End();
 			rlImGuiEnd();
 		EndDrawing();
