@@ -82,31 +82,6 @@ int main() {
 			//DrawText("Hello World", 0, 20, 20, WHITE);
 			BeginMode3D(bcam.camera); 
 				DrawGrid(15, 1.0f);
-				//for(Entity c : cubes) {
-					//switch(c.type) {
-						//case TYPE_CUBE:
-							//if(cfg.drawSolid)
-								//DrawCubeV(c.obj.cube.pos, c.obj.cube.size, c.obj.cube.color);
-							//if(cfg.drawWire)
-								//DrawCubeWiresV(
-										//c.obj.cube.pos,
-										//Vector3AddValue(c.obj.cube.size, DBG_Indent),
-										//inverseColor(c.obj.cube.color)
-								//);
-							//break;
-						//case TYPE_SPHERE:
-							//if(cfg.drawSolid)
-								//DrawSphereEx(c.obj.sphere.pos, c.obj.sphere.rad, c.obj.sphere.rings, c.obj.sphere.slices, c.obj.sphere.color);
-							//if(cfg.drawWire)
-								//DrawSphereWires(c.obj.sphere.pos, c.obj.sphere.rad, c.obj.sphere.rings, c.obj.sphere.slices, inverseColor(c.obj.cube.color));
-							////rings and slices when initing are floats read as an int so it looks ridiculously large
-							//break;
-						//case TYPE_CYLINDER:
-							//if(cfg.drawSolid)
-							//DrawCylinderEx(c.obj.cylinder.startPos, c.obj.cylinder.endPos, c.obj.cylinder.startRadius, c.obj.cylinder.endRadius, c.obj.cylinder.sides, c.obj.cylinder.color);
-							//break;
-					//}
-				//}
 				DrawObjects(cubes, cfg);
 			EndMode3D();
 
