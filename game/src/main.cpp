@@ -1,7 +1,6 @@
 /*
  *
  * TODO:
- *	finish cylinder creation/manipulation
  *
  */
 
@@ -82,7 +81,7 @@ int main() {
 			//DrawText("Hello World", 0, 20, 20, WHITE);
 			BeginMode3D(bcam.camera); 
 				DrawGrid(15, 1.0f);
-				DrawObjects(cubes, cfg);
+				rad::DrawObjects(cubes, cfg);
 			EndMode3D();
 
 
@@ -115,6 +114,21 @@ int main() {
 									}
 								);
 							}
+							if(ImGui::MenuItem("Cylinder")) {
+								cubes.push_back(
+									Entity {
+										.type = TYPE_CYLINDER,
+										.obj = {.cylinder = Cylinder {
+											Vector3{0,0,0},
+											Vector3{0,0,0},
+											1.0f,
+											1.0f,
+											5,
+											WHITE
+										}}
+									}		
+								);
+							}
 							ImGui::EndMenu();
 						}
 						ImGui::EndMenuBar();
@@ -122,37 +136,9 @@ int main() {
 
 					if(ImGui::BeginTabBar("IM_LIBBING!!!!!!!!!!!!!!!!!!!!!!!!")) {
 						if(ImGui::BeginTabItem("Cube List")) {
-							for(int i = 0; i < cubes.size(); i++) {
-								if(ImGui::Button(TextFormat("%d) Delete", i))) {
-									cubes.erase(cubes.begin() + i);
-								}
-								switch(cubes[i].type) {
-									case TYPE_CUBE:
-										ImGui::SameLine();
-										ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d", i), &cubes[i].obj.cube.pos.x, cfg.dragDelta);
-										ImGui::Indent(79.0f);
-										ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_SIZE_%d", i), &cubes[i].obj.cube.size.x, cfg.dragDelta);
-										break;
-
-									case TYPE_SPHERE:
-										ImGui::SameLine();
-										ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d" , i), &cubes[i].obj.sphere.pos.x, cfg.dragDelta);
-										ImGui::Indent(79);
-										ImGui::DragFloat(TextFormat("##CUBE_LIST_DRAG_RAD_%d", i), &cubes[i].obj.sphere.rad, cfg.dragDelta);
-										ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_RING_%d", i), &cubes[i].obj.sphere.rings);
-										ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_SLICE_%d", i), &cubes[i].obj.sphere.slices);
-										break;
-
-									case TYPE_CYLINDER:
-										ImGui::Text("Unimplemented");
-										break;
-								}
-								ImGui::Unindent(79);
-
-							}
+							rad::ImGuiObjects(&cubes, cfg);
 							ImGui::EndTabItem();
 						}
-
 						if(ImGui::BeginTabItem("Settings")) {
 							ImGui::DragFloat("Cube List Drag Delta", &cfg.dragDelta, 0.1);
 							ImGui::Checkbox("Draw Wires", &cfg.drawWire);
@@ -161,7 +147,6 @@ int main() {
 						}
 						ImGui::EndTabBar();
 					}
-					
 				ImGui::End();
 			rlImGuiEnd();
 		EndDrawing();
