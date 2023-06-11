@@ -28,6 +28,7 @@ project (workspaceName)
 	includedirs { "./", "src", "include"}
 	links {"Comdlg32", "ole32", "imm32"}
 	link_to("rayImGui")
+	link_to("tinyfiledialogs")
 	link_raylib();
 	
 	-- To link to a lib use link_to("LIB_FOLDER_NAME")

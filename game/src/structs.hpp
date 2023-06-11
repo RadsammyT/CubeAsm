@@ -1,15 +1,3 @@
-/*
- *	a few notes on why there are functions on the model structs:
- *	per [https://stackoverflow.com/questions/18840205/are-class-struct-functions-stored-in-an-object]:
- *	
- *	Class functions in C++ are not linked (pointed) from the object itself, 
- *	they are simply stored as any other function. When you call a class function, 
- *	you are simply calling a normal function (you are not calling it from a pointer). 
- *	This is why doing something like b.func = another_func; is illegal in C++.
- *	
- *	
- */
-
 #include <raylib.h>
 #include <rlImGui.h>
 #include <vector>

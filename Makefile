@@ -11,25 +11,33 @@ endif
 ifeq ($(config),debug_x64)
   raylib_config = debug_x64
   CubeAsm_config = debug_x64
+  fmt_config = debug_x64
+  tinyfiledialogs_config = debug_x64
   rayImGui_config = debug_x64
 endif
 ifeq ($(config),debug_x86)
   raylib_config = debug_x86
   CubeAsm_config = debug_x86
+  fmt_config = debug_x86
+  tinyfiledialogs_config = debug_x86
   rayImGui_config = debug_x86
 endif
 ifeq ($(config),release_x64)
   raylib_config = release_x64
   CubeAsm_config = release_x64
+  fmt_config = release_x64
+  tinyfiledialogs_config = release_x64
   rayImGui_config = release_x64
 endif
 ifeq ($(config),release_x86)
   raylib_config = release_x86
   CubeAsm_config = release_x86
+  fmt_config = release_x86
+  tinyfiledialogs_config = release_x86
   rayImGui_config = release_x86
 endif
 
-PROJECTS := raylib CubeAsm rayImGui
+PROJECTS := raylib CubeAsm fmt tinyfiledialogs rayImGui
 
 .PHONY: all clean help $(PROJECTS) 
 
@@ -41,10 +49,22 @@ ifneq (,$(raylib_config))
 	@${MAKE} --no-print-directory -C _build -f raylib.make config=$(raylib_config)
 endif
 
-CubeAsm: rayImGui raylib
+CubeAsm: rayImGui tinyfiledialogs raylib
 ifneq (,$(CubeAsm_config))
 	@echo "==== Building CubeAsm ($(CubeAsm_config)) ===="
 	@${MAKE} --no-print-directory -C _build -f CubeAsm.make config=$(CubeAsm_config)
+endif
+
+fmt:
+ifneq (,$(fmt_config))
+	@echo "==== Building fmt ($(fmt_config)) ===="
+	@${MAKE} --no-print-directory -C _build -f fmt.make config=$(fmt_config)
+endif
+
+tinyfiledialogs:
+ifneq (,$(tinyfiledialogs_config))
+	@echo "==== Building tinyfiledialogs ($(tinyfiledialogs_config)) ===="
+	@${MAKE} --no-print-directory -C _build -f tinyfiledialogs.make config=$(tinyfiledialogs_config)
 endif
 
 rayImGui:
@@ -56,6 +76,8 @@ endif
 clean:
 	@${MAKE} --no-print-directory -C _build -f raylib.make clean
 	@${MAKE} --no-print-directory -C _build -f CubeAsm.make clean
+	@${MAKE} --no-print-directory -C _build -f fmt.make clean
+	@${MAKE} --no-print-directory -C _build -f tinyfiledialogs.make clean
 	@${MAKE} --no-print-directory -C _build -f rayImGui.make clean
 
 help:
@@ -72,6 +94,8 @@ help:
 	@echo "   clean"
 	@echo "   raylib"
 	@echo "   CubeAsm"
+	@echo "   fmt"
+	@echo "   tinyfiledialogs"
 	@echo "   rayImGui"
 	@echo ""
 	@echo "For more information, see https://github.com/premake/premake-core/wiki"

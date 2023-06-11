@@ -4,6 +4,8 @@
  *
  */
 
+#define FMT_HEADER_ONLY
+
 #include <raylib.h>
 #include "structs.hpp"
 #include <iostream>
@@ -11,6 +13,11 @@
 #include <rlImGui.h>
 #include <rcamera_blender.h>
 #include "funcs.hpp"
+#include <fmt/format.h>
+#include "files.hpp"
+#include <tinyfiledialogs.h>
+
+
 
 std::vector<Entity> cubes = {
 	Entity {
@@ -42,7 +49,7 @@ BlenderCamera bcam = CreateBlenderCamera();
 float DBG_Indent = 0.0f;
 
 int main() {
-
+	fmt::print("HELLO FMT\n");
 	bcam.freeFly = false;
 	SetConfigFlags(FLAG_VSYNC_HINT);
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
@@ -92,7 +99,9 @@ int main() {
 					bool open = true;
 					ImGui::ShowDemoWindow(&open);
 				}
-				ImGui::Begin("Cube Assembler - by RadsammyT", NULL, ImGuiWindowFlags_MenuBar);
+				ImGui::Begin("Cube Assembler - by RadsammyT", 
+						NULL, 
+						ImGuiWindowFlags_MenuBar);
 					
 					if(ImGui::BeginMenuBar()) {
 						if(ImGui::BeginMenu("New")) {
@@ -100,8 +109,12 @@ int main() {
 							if(ImGui::MenuItem("Cube")) {
 								cubes.push_back(
 									Entity {
-									.type =	TYPE_CUBE,
-									.obj = Cube { Vector3{0,0,0}, Vector3{1,1,1}, WHITE}
+										.type =	TYPE_CUBE,
+										.obj = Cube { 
+											Vector3{0,0,0}, 
+											Vector3{1,1,1}, 
+											WHITE
+										}
 									}		
 								);
 							}
@@ -131,16 +144,28 @@ int main() {
 							}
 							ImGui::EndMenu();
 						}
+						ImGui::Text("     ");
+						if(ImGui::BeginMenu("File")) {
+							ImGui::Text("WIP!!!");
+							if(ImGui::MenuItem("Save Scene (CubesOnly)")) {
+								rad::file::saveScene(
+										rad::saveDialog(fp, 1, "CubeAsm Files"), 
+										cubes);
+							}
+							ImGui::EndMenu();
+						}
 						ImGui::EndMenuBar();
 					}
 
-					if(ImGui::BeginTabBar("IM_LIBBING!!!!!!!!!!!!!!!!!!!!!!!!")) {
+					if(ImGui::BeginTabBar("IM_LIBBING!!!!!!!!!!!!!!!!!!!!")) {
 						if(ImGui::BeginTabItem("Cube List")) {
 							rad::ImGuiObjects(&cubes, cfg);
 							ImGui::EndTabItem();
 						}
 						if(ImGui::BeginTabItem("Settings")) {
-							ImGui::DragFloat("Cube List Drag Delta", &cfg.dragDelta, 0.1);
+							ImGui::DragFloat("Cube List Drag Delta", 
+									&cfg.dragDelta,
+								   	0.1);
 							ImGui::Checkbox("Draw Wires", &cfg.drawWire);
 							ImGui::Checkbox("Draw Solids", &cfg.drawSolid);
 							ImGui::EndTabItem();
