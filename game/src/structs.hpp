@@ -3,9 +3,10 @@
 #include <vector>
 #pragma once
 enum Type {
+	TYPE_NULL = -1,
 	TYPE_CUBE = 0,
-	TYPE_SPHERE,
-	TYPE_CYLINDER
+	TYPE_SPHERE = 1,
+	TYPE_CYLINDER = 2
 };
 
 
@@ -18,17 +19,17 @@ struct Cube {
 struct Sphere {
 	Vector3 pos;
 	float rad;
-	int rings;
-	int slices;
+	int rings; //RING
+	int slices; //SLICE
 	Color color;
 };
 
 struct Cylinder {
-	Vector3 startPos;
-	Vector3 endPos;
-	float startRadius;
-	float endRadius;
-	int sides;
+	Vector3 startPos; //SPOS
+	Vector3 endPos; // EPOS
+	float startRadius; //SRAD
+	float endRadius; //ERAD
+	int sides; // SIDE
 	Color color;
 };
 
@@ -50,6 +51,4 @@ union Object {
 struct Entity {
 	Type type;
 	Object obj;	
-
-
 };

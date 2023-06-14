@@ -1,10 +1,25 @@
 #include "structs.hpp"
+#include <vector>
+#include <string>
+#include <sstream>
 //#include <raylib.h>
 #pragma once
 namespace rad {
 	Color inverseColor(Color in);
 	void ImGuiObjects(std::vector<Entity> cubes);
 	void DrawObjects(std::vector<Entity> cubes, Config cfg);
+	std::vector<std::string> tokenize(std::string in, char del);
+
+	
+	std::vector<std::string> tokenize(std::string in, char del) {
+		std::string buf;
+		std::vector<std::string> ret;
+		std::stringstream instr(in);
+		while(std::getline(instr, buf, del)) 
+			ret.push_back(buf);
+
+		return ret;
+	}
 
 	void ImGuiObjects(std::vector<Entity>* cubes, Config cfg) {
 		for(int i = 0; i < cubes->size(); i++) {
@@ -48,6 +63,11 @@ namespace rad {
 					   	&cubes->at(i).obj.cylinder.endRadius, cfg.dragDelta);
 					ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_SIDES_%d", i),
 					   	&cubes->at(i).obj.cylinder.sides);
+					break;
+
+				default:
+					ImGui::SameLine();
+					ImGui::TextColored(ImVec4{1,0,0,1}, "Invalid type: %d!", &cubes->at(i).type);
 					break;
 			}
 			ImGui::Unindent(79);

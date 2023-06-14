@@ -29,6 +29,7 @@ std::vector<Entity> cubes = {
 		}
 	}
 };
+
 Config cfg = {
 	.dragDelta = 0.05f,
 	.drawSolid = true,
@@ -151,6 +152,13 @@ int main() {
 								rad::file::saveScene(
 										rad::saveDialog(fp, 1, "CubeAsm Files"), 
 										cubes);
+							}
+
+							if(ImGui::MenuItem("Load Scene (VERY WIP)")) {
+								rad::file::loadScene(
+										rad::loadDialog(fp, 1, "CubeAsmFiles"),
+										&cubes
+									);
 							}
 							ImGui::EndMenu();
 						}
