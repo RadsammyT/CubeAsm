@@ -16,9 +16,6 @@
 #include <fmt/format.h>
 #include "files.hpp"
 #include <tinyfiledialogs.h>
-
-
-
 std::vector<Entity> cubes = {
 	Entity {
 		TYPE_CUBE,

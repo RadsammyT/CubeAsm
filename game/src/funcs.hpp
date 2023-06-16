@@ -9,8 +9,14 @@ namespace rad {
 	void ImGuiObjects(std::vector<Entity> cubes);
 	void DrawObjects(std::vector<Entity> cubes, Config cfg);
 	std::vector<std::string> tokenize(std::string in, char del);
-
+	void Qpop(std::string in);
 	
+	void Qpop(std::string in) {
+		if(ImGui::IsItemHovered()) {
+			ImGui::SetTooltip(in.c_str());
+		}
+	}
+
 	std::vector<std::string> tokenize(std::string in, char del) {
 		std::string buf;
 		std::vector<std::string> ret;
@@ -32,37 +38,66 @@ namespace rad {
 					ImGui::SameLine();
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d", i),
 						   	&cubes->at(i).obj.cube.pos.x, cfg.dragDelta);
+					rad::Qpop("Position");
 					ImGui::Indent(79.0f);
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_SIZE_%d", i),
 						   	&cubes->at(i).obj.cube.size.x, cfg.dragDelta);
+					rad::Qpop("Size");
+					ImGui::DragScalarN(
+							TextFormat("##CUBE_LIST_DRAG_COLOR_%d",i),
+							ImGuiDataType_U8,
+							&cubes->at(i).obj.cube.color,
+							4);
+					rad::Qpop("Color (RGBA)");
 					break;
 
 				case TYPE_SPHERE:
 					ImGui::SameLine();
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d" , i),
 						   	&cubes->at(i).obj.sphere.pos.x, cfg.dragDelta);
+					rad::Qpop("Position");
 					ImGui::Indent(79);
 					ImGui::DragFloat(TextFormat("##CUBE_LIST_DRAG_RAD_%d", i),
 						   	&cubes->at(i).obj.sphere.rad, cfg.dragDelta);
+					rad::Qpop("Radius");
 					ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_RING_%d", i),
 						   	&cubes->at(i).obj.sphere.rings);
+					rad::Qpop("Rings");
 					ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_SLICE_%d", i),
 						   	&cubes->at(i).obj.sphere.slices);
+					rad::Qpop("Slices");
+					ImGui::DragScalarN(
+							TextFormat("##CUBE_LIST_DRAG_COLOR_%d",i),
+							ImGuiDataType_U8,
+							&cubes->at(i).obj.sphere.color,
+							4);
+					rad::Qpop("Color (RGBA)");
 					break;
 
 				case TYPE_CYLINDER:
 					ImGui::SameLine();
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_STARTPOS_%d", i),
 					&cubes->at(i).obj.cylinder.startPos.x, cfg.dragDelta);
+					rad::Qpop("Start Position");
 					ImGui::Indent(79);
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_ENDPOS_%d", i),
 					   	&cubes->at(i).obj.cylinder.endPos.x, cfg.dragDelta);
+					rad::Qpop("End Position");
 					ImGui::DragFloat(TextFormat("##CUBE_LIST_STARTRAD_%d", i),
 					   	&cubes->at(i).obj.cylinder.startRadius, cfg.dragDelta);
+					rad::Qpop("Start Radius");
 					ImGui::DragFloat(TextFormat("##CUBE_LIST_ENDRAD_%d", i),
 					   	&cubes->at(i).obj.cylinder.endRadius, cfg.dragDelta);
+					rad::Qpop("End Radius");
 					ImGui::DragInt(TextFormat("##CUBE_LIST_DRAG_SIDES_%d", i),
 					   	&cubes->at(i).obj.cylinder.sides);
+					rad::Qpop("Slices");
+					ImGui::DragScalarN(
+							TextFormat("##CUBE_LIST_DRAG_COLOR_%d",i),
+							ImGuiDataType_U8,
+							&cubes->at(i).obj.cylinder.color,
+							4);
+					rad::Qpop("Color (RGBA)");
 					break;
 
 				default:
