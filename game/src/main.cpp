@@ -16,6 +16,8 @@
 #include <fmt/format.h>
 #include "files.hpp"
 #include <tinyfiledialogs.h>
+#include <imgui_internal.h>
+
 std::vector<Entity> cubes = {
 	Entity {
 		TYPE_CUBE,
@@ -31,8 +33,6 @@ Config cfg = {
 	.dragDelta = 0.05f,
 	.drawSolid = true,
 };
-bool mouseState = true;
-bool cameraMovement = false;
 Camera3D cam = {
 	Vector3 {0,10.0f,10.0f},
 	Vector3 {0,0,0},
@@ -44,37 +44,18 @@ Camera3D cam = {
 
 BlenderCamera bcam = CreateBlenderCamera();
 //Debug Vars
-float DBG_Indent = 0.0f;
-
 int main() {
 	fmt::print("HELLO FMT\n");
 	bcam.freeFly = false;
 	SetConfigFlags(FLAG_VSYNC_HINT);
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-	InitWindow(1000, 1000, "YEEHAW");
+	InitWindow(1000, 1000, "CubeAsm");
 	SetTargetFPS(60);
 	rlImGuiSetup(true);
 
 	ImGuiIO& io = ImGui::GetIO();
 	while(!WindowShouldClose()) {
-		if(IsKeyPressed(KEY_C)) {
-			cameraMovement = !cameraMovement;
-			for(;;) {
-				if(mouseState) {
-					mouseState = false;
-					DisableCursor();
-					break;
-				}
 
-				if(!mouseState) {
-					mouseState = true;
-					EnableCursor();
-					break;
-				}
-
-			}
-
-		}
 		if(!(io.WantCaptureMouse || io.WantCaptureKeyboard))
 			BlenderCameraUpdate(&bcam);
 
@@ -102,7 +83,7 @@ int main() {
 						ImGuiWindowFlags_MenuBar);
 					
 					if(ImGui::BeginMenuBar()) {
-						if(ImGui::BeginMenu("New")) {
+						if(ImGui::BeginMenu("New Object")) {
 
 							if(ImGui::MenuItem("Cube")) {
 								cubes.push_back(
@@ -142,16 +123,15 @@ int main() {
 							}
 							ImGui::EndMenu();
 						}
-						ImGui::Text("     ");
+						ImGui::SeparatorEx(ImGuiSeparatorFlags_Vertical);
 						if(ImGui::BeginMenu("File")) {
-							ImGui::Text("WIP!!!");
-							if(ImGui::MenuItem("Save Scene (CubesOnly)")) {
+							if(ImGui::MenuItem("Save Scene")) {
 								rad::file::saveScene(
 										rad::saveDialog(fp, 1, "CubeAsm Files"), 
 										cubes);
 							}
 
-							if(ImGui::MenuItem("Load Scene (VERY WIP)")) {
+							if(ImGui::MenuItem("Load Scene")) {
 								rad::file::loadScene(
 										rad::loadDialog(fp, 1, "CubeAsmFiles"),
 										&cubes

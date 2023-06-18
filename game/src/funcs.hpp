@@ -4,6 +4,9 @@
 #include <sstream>
 //#include <raylib.h>
 #pragma once
+
+float DBG_Indent = 0.0f;
+
 namespace rad {
 	Color inverseColor(Color in);
 	void ImGuiObjects(std::vector<Entity> cubes);
@@ -38,6 +41,8 @@ namespace rad {
 					ImGui::SameLine();
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d", i),
 						   	&cubes->at(i).obj.cube.pos.x, cfg.dragDelta);
+					ImGui::SameLine();
+					ImGui::Text("Cube");
 					rad::Qpop("Position");
 					ImGui::Indent(79.0f);
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_SIZE_%d", i),
@@ -55,6 +60,8 @@ namespace rad {
 					ImGui::SameLine();
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_DRAG_POS_%d" , i),
 						   	&cubes->at(i).obj.sphere.pos.x, cfg.dragDelta);
+					ImGui::SameLine();
+					ImGui::Text("Sphere");
 					rad::Qpop("Position");
 					ImGui::Indent(79);
 					ImGui::DragFloat(TextFormat("##CUBE_LIST_DRAG_RAD_%d", i),
@@ -79,6 +86,8 @@ namespace rad {
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_STARTPOS_%d", i),
 					&cubes->at(i).obj.cylinder.startPos.x, cfg.dragDelta);
 					rad::Qpop("Start Position");
+					ImGui::SameLine();
+					ImGui::Text("Cylinder");
 					ImGui::Indent(79);
 					ImGui::DragFloat3(TextFormat("##CUBE_LIST_ENDPOS_%d", i),
 					   	&cubes->at(i).obj.cylinder.endPos.x, cfg.dragDelta);
@@ -106,16 +115,15 @@ namespace rad {
 					break;
 			}
 			ImGui::Unindent(79);
-
+			ImGui::Separator();
 		}
 	}
 
 	Color inverseColor(Color in) {
-		unsigned char temp = 255;
 		return Color {
-			temp - in.r,
-			temp- in.g,
-			temp- in.b,
+		(unsigned char)(255 - in.r),
+		(unsigned char)(255 - in.g),
+		(unsigned char)(255 - in.b),
 				  in.a
 		};
 	}

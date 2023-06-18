@@ -1,7 +1,11 @@
+#define FILE_NULL "_CA_NULL"
+
 #include <raylib.h>
 #include <rlImGui.h>
 #include <vector>
 #pragma once
+
+
 enum Type {
 	TYPE_NULL = -1,
 	TYPE_CUBE = 0,

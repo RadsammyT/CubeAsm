@@ -69,7 +69,7 @@ namespace rad {
 				0
 				);
 		if(origin == NULL)
-			return "_CA_NULL";
+			return FILE_NULL;
 		std::string out = origin;
 		replace_all(out, "\\", "/");
 		return out;
@@ -84,7 +84,7 @@ namespace rad {
 				desc
 				);
 		if(origin == NULL)
-			return "_CA_NULL";
+			return FILE_NULL;
 		std::string out = origin;
 		replace_all(out, "\\", "/");
 		return out;
@@ -260,6 +260,17 @@ namespace rad {
 		}
 
 		bool saveScene(std::string in, std::vector<Entity> ents) {
+			if(in == FILE_NULL) {
+				tinyfd_messageBox("Prompt Cancel",
+						"The dialog was cancelled. If this was intentional, you can safely"
+						" ignore this.",
+						"ok",
+						"info",
+						1
+						);
+				return false;
+			}
+
 			std::ofstream file;
 			file.open(in);
 			for(Entity c: ents) {
