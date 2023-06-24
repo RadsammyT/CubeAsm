@@ -40,7 +40,6 @@ Config cfg = {
 };
 
 BlenderCamera bcam = CreateBlenderCamera();
-//Debug Vars
 int main() {
 	bcam.freeFly = false;
 	SetConfigFlags(FLAG_VSYNC_HINT);
