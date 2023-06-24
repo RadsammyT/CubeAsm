@@ -39,8 +39,6 @@ struct Cylinder {
 
 struct Config {
 	bool showDemo;
-	bool mouseState;
-	bool cameraMovement;
 	float dragDelta;
 	bool drawWire;
 	bool drawSolid;

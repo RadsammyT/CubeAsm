@@ -29,23 +29,19 @@ std::vector<Entity> cubes = {
 	}
 };
 
+struct {
+	int indexA = 0;
+	int indexB = 0;
+} swap;
+
 Config cfg = {
 	.dragDelta = 0.05f,
 	.drawSolid = true,
-};
-Camera3D cam = {
-	Vector3 {0,10.0f,10.0f},
-	Vector3 {0,0,0},
-	Vector3 {0,1.0f,0},
-	90.0f,
-	CAMERA_PERSPECTIVE
-
 };
 
 BlenderCamera bcam = CreateBlenderCamera();
 //Debug Vars
 int main() {
-	fmt::print("HELLO FMT\n");
 	bcam.freeFly = false;
 	SetConfigFlags(FLAG_VSYNC_HINT);
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
@@ -64,12 +60,10 @@ int main() {
 			ClearBackground(BLACK);
 			DrawFPS(0,0);
 
-			//DrawText("Hello World", 0, 20, 20, WHITE);
 			BeginMode3D(bcam.camera); 
 				DrawGrid(15, 1.0f);
 				rad::DrawObjects(cubes, cfg);
 			EndMode3D();
-
 
 			rlImGuiBegin();
 				ImGui::Checkbox("ImGui Demo", &cfg.showDemo);
@@ -133,7 +127,7 @@ int main() {
 
 							if(ImGui::MenuItem("Load Scene")) {
 								rad::file::loadScene(
-										rad::loadDialog(fp, 1, "CubeAsmFiles"),
+										rad::loadDialog(fp, 1, "CubeAsm Files"),
 										&cubes
 									);
 							}
@@ -144,6 +138,15 @@ int main() {
 
 					if(ImGui::BeginTabBar("IM_LIBBING!!!!!!!!!!!!!!!!!!!!")) {
 						if(ImGui::BeginTabItem("Cube List")) {
+							if(ImGui::CollapsingHeader("Swap Indexes")) {
+								ImGui::SliderInt("Index A", &swap.indexA, 0, cubes.size() - 1); 
+								ImGui::SliderInt("Index B", &swap.indexB, 0, cubes.size() - 1); 
+								if(ImGui::Button("Swap Indexes") && !cubes.empty()) {
+									// FIXME: swap doesnt swap two elements for some
+									// bizarre reason.
+									std::swap(cubes[swap.indexA], cubes[swap.indexB]);
+								}
+							}
 							rad::ImGuiObjects(&cubes, cfg);
 							ImGui::EndTabItem();
 						}

@@ -92,8 +92,13 @@ namespace rad {
 
 	namespace file {
 		bool loadScene(std::string in, std::vector<Entity>* ents) {
+			if(in == FILE_NULL) {
+				return false;
+			}
+
 			std::ifstream f(in);
 			if(!f.is_open()) {
+				TraceLog(LOG_ERROR, TextFormat("File not found: %s!", in.c_str()));
 				return false;
 			}
 			Entity temp;
