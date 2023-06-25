@@ -137,12 +137,10 @@ int main() {
 
 					if(ImGui::BeginTabBar("IM_LIBBING!!!!!!!!!!!!!!!!!!!!")) {
 						if(ImGui::BeginTabItem("Cube List")) {
-							if(ImGui::CollapsingHeader("Swap Indexes")) {
+							if(ImGui::CollapsingHeader("Swap Indexes##SWAP_INDEX_HDR")) {
 								ImGui::SliderInt("Index A", &swap.indexA, 0, cubes.size() - 1); 
 								ImGui::SliderInt("Index B", &swap.indexB, 0, cubes.size() - 1); 
-								if(ImGui::Button("Swap Indexes") && !cubes.empty()) {
-									// FIXME: swap doesnt swap two elements for some
-									// bizarre reason.
+								if(ImGui::Button("Swap Indexes##SWAP_INDEX_BTN")) {
 									std::swap(cubes[swap.indexA], cubes[swap.indexB]);
 								}
 							}
