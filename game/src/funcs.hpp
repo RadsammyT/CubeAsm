@@ -33,7 +33,7 @@ namespace rad {
 	}
 
 	void ImGuiObjects(std::vector<Entity>* cubes, Config cfg) {
-		for(int i = 0; i < cubes->size(); i++) {
+		for(long unsigned int i = 0; i < cubes->size(); i++) {
 			if(ImGui::Button(TextFormat("%d) Delete", i))) {
 				cubes->erase(cubes->begin() + (i));
 				continue;
@@ -113,7 +113,7 @@ namespace rad {
 
 				default:
 					ImGui::SameLine();
-					ImGui::TextColored(ImVec4{1,0,0,1}, "Invalid type: %d!", &cubes->at(i).type);
+					ImGui::TextColored(ImVec4{1,0,0,1}, "Invalid type: %d!", cubes->at(i).type);
 					break;
 			}
 			ImGui::Unindent(79);
@@ -182,6 +182,9 @@ namespace rad {
 								inverseColor(c.obj.cylinder.color)
 								);
 					}
+					break;
+				case TYPE_NULL:
+					printf("TYPE_NULL ENCOUNTERED WHEN DRAWING OBJECT!\n");
 					break;
 			}
 		}

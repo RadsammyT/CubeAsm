@@ -1,0 +1,121 @@
+[
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/raudio.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/raudio.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/raudio.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/raudio.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/rcore.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rcore.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rcore.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/rcore.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/rglfw.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rglfw.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rglfw.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/rglfw.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/rmodels.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rmodels.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rmodels.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/rmodels.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/rshapes.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rshapes.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rshapes.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/rshapes.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/rtext.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rtext.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rtext.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/rtext.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/rtextures.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rtextures.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/rtextures.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/rtextures.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/raylib-master/src/utils.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/utils.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/raylib/utils.d -c /home/radsammyt/programming/CubeAsm/raylib-master/src/utils.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/game/src/main.cpp",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/game -I/home/radsammyt/programming/CubeAsm/game/src -I/home/radsammyt/programming/CubeAsm/game/include -I/home/radsammyt/programming/CubeAsm/rayImGui/include -I/home/radsammyt/programming/CubeAsm/rayImGui -I/home/radsammyt/programming/CubeAsm/tinyfiledialogs/include -I/home/radsammyt/programming/CubeAsm/tinyfiledialogs -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/CubeAsm/main.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/CubeAsm/main.d -c /home/radsammyt/programming/CubeAsm/game/src/main.cpp"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/rayImGui/imgui.cpp",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/rayImGui -I/home/radsammyt/programming/CubeAsm/rayImGui/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui.d -c /home/radsammyt/programming/CubeAsm/rayImGui/imgui.cpp"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/rayImGui/imgui_demo.cpp",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/rayImGui -I/home/radsammyt/programming/CubeAsm/rayImGui/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_demo.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_demo.d -c /home/radsammyt/programming/CubeAsm/rayImGui/imgui_demo.cpp"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/rayImGui/imgui_draw.cpp",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/rayImGui -I/home/radsammyt/programming/CubeAsm/rayImGui/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_draw.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_draw.d -c /home/radsammyt/programming/CubeAsm/rayImGui/imgui_draw.cpp"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/rayImGui/imgui_tables.cpp",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/rayImGui -I/home/radsammyt/programming/CubeAsm/rayImGui/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_tables.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_tables.d -c /home/radsammyt/programming/CubeAsm/rayImGui/imgui_tables.cpp"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/rayImGui/imgui_widgets.cpp",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/rayImGui -I/home/radsammyt/programming/CubeAsm/rayImGui/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_widgets.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/imgui_widgets.d -c /home/radsammyt/programming/CubeAsm/rayImGui/imgui_widgets.cpp"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/rayImGui/rlImGui.cpp",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/rayImGui -I/home/radsammyt/programming/CubeAsm/rayImGui/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/rlImGui.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/rayImGui/rlImGui.d -c /home/radsammyt/programming/CubeAsm/rayImGui/rlImGui.cpp"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/tinyfiledialogs/more_dialogs/tinyfd_moredialogs.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/tinyfiledialogs -I/home/radsammyt/programming/CubeAsm/tinyfiledialogs/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/tinyfiledialogs/tinyfd_moredialogs.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/tinyfiledialogs/tinyfd_moredialogs.d -c /home/radsammyt/programming/CubeAsm/tinyfiledialogs/more_dialogs/tinyfd_moredialogs.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/tinyfiledialogs/tinyfiledialogs.c",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/tinyfiledialogs -I/home/radsammyt/programming/CubeAsm/tinyfiledialogs/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/tinyfiledialogs/tinyfiledialogs.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/tinyfiledialogs/tinyfiledialogs.d -c /home/radsammyt/programming/CubeAsm/tinyfiledialogs/tinyfiledialogs.c"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/fmt_lib/fmt.cc",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/fmt_lib -I/home/radsammyt/programming/CubeAsm/fmt_lib/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/fmt_lib/fmt.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/fmt_lib/fmt.d -c /home/radsammyt/programming/CubeAsm/fmt_lib/fmt.cc"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/fmt_lib/format.cc",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/fmt_lib -I/home/radsammyt/programming/CubeAsm/fmt_lib/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/fmt_lib/format.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/fmt_lib/format.d -c /home/radsammyt/programming/CubeAsm/fmt_lib/format.cc"
+          }
+,
+          {
+            "directory": "/home/radsammyt/programming/CubeAsm/_build",
+            "file": "/home/radsammyt/programming/CubeAsm/fmt_lib/os.cc",
+            "command": "cc -MD -MP -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 -D_GNU_SOURCE -I/home/radsammyt/programming/CubeAsm/fmt_lib -I/home/radsammyt/programming/CubeAsm/fmt_lib/include -I/home/radsammyt/programming/CubeAsm/raylib-master/src -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external -I/home/radsammyt/programming/CubeAsm/raylib-master/src/external/glfw/include -m32 -g -std=c99 -o /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/fmt_lib/os.o -MF /home/radsammyt/programming/CubeAsm/_build/obj/x86/Debug/fmt_lib/os.d -c /home/radsammyt/programming/CubeAsm/fmt_lib/os.cc"
+          }
+]

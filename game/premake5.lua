@@ -26,7 +26,9 @@ project (workspaceName)
 	files {"**.c", "**.cpp", "**.h", "**.hpp"}
 
 	includedirs { "./", "src", "include"}
-	links {"Comdlg32", "ole32", "imm32"}
+	if _TARGET_OS == "windows" then
+		links {"Comdlg32", "ole32", "imm32"}
+	end
 	link_to("rayImGui")
 	link_to("tinyfiledialogs")
 	link_raylib();

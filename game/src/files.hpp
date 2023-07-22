@@ -31,7 +31,11 @@ PUSH
 
 
 */
+#if 0
 #include <fmt/format.h>
+#else 
+#include "../../fmt_lib/include/fmt/format.h"
+#endif
 #include <string>
 #include <tinyfiledialogs.h>
 #include <iostream>

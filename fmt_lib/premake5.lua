@@ -1,6 +1,5 @@
-baseName = path.getbasename(os.getcwd());
-
-project (baseName)
+--baseName = path.getbasename(os.getcwd());
+project ("fmt_lib")
     kind "StaticLib"
     location "../_build"
     targetdir "../_bin/%{cfg.buildcfg}"
@@ -9,8 +8,8 @@ project (baseName)
     vpaths 
     {
         ["Header Files/*"] = { "include/**.h", "include/**.hpp", "**.h", "**.hpp"},
-        ["Source Files/*"] = { "src/**.cpp", "src/**.c", "**.cpp","**.c"},
+        ["Source Files/*"] = { "src/**.cpp", "src/**.c", "**.cpp","**.c", "**.cc"},
     }
-    files {"**.c", "**.cpp", "**.h", "**.hpp"}
+    files {"**.c", "**.cpp", "**.h", "**.hpp", "**.cc"}
 	
 	include_raylib()

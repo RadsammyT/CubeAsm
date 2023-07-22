@@ -13,7 +13,11 @@
 #include <rlImGui.h>
 #include <rcamera_blender.h>
 #include "funcs.hpp"
+#if 0 // in the event that <fmt/format.h> goes to shit
 #include <fmt/format.h>
+#else 
+#include "../../fmt_lib/include/fmt/format.h"
+#endif
 #include "files.hpp"
 #include <tinyfiledialogs.h>
 #include <imgui_internal.h>
