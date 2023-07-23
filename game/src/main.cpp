@@ -3,8 +3,14 @@
  * TODO:
  *
  */
-
 #define FMT_HEADER_ONLY
+
+#if 0 // using imgui mem editor for the fun of it :)
+	#define RAD_MEM_EDIT
+#endif
+// mem editor uses the start of the cubes vector as a base ptr
+// with size being 0x10000. this is just for my own fun, not for debugging (god forbid)
+
 
 #include <raylib.h>
 #include "structs.hpp"
@@ -12,6 +18,7 @@
 #include <vector>
 #include <rlImGui.h>
 #include <rcamera_blender.h>
+#include <imgui_mem_editor.h>
 #include "funcs.hpp"
 #if 0 // in the event that <fmt/format.h> goes to shit
 #include <fmt/format.h>
@@ -22,6 +29,10 @@
 #include <tinyfiledialogs.h>
 #include <imgui_internal.h>
 
+#ifdef RAD_MEM_EDIT
+	static MemoryEditor ram;
+	size_t size = 0x10000;
+#endif
 std::vector<Entity> cubes = {
 	Entity {
 		TYPE_CUBE,
@@ -75,6 +86,9 @@ int main() {
 					bool open = true;
 					ImGui::ShowDemoWindow(&open);
 				}
+				#ifdef RAD_MEM_EDIT
+					ram.DrawWindow("MemEdit", cubes.data(), size);
+				#endif
 				ImGui::Begin("Cube Assembler - by RadsammyT", 
 						NULL, 
 						ImGuiWindowFlags_MenuBar);

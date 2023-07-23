@@ -13,7 +13,6 @@ enum Type {
 	TYPE_CYLINDER = 2
 };
 
-
 struct Cube {
 	Vector3 pos;
 	Vector3 size;

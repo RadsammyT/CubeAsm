@@ -90,6 +90,9 @@ namespace rad {
 		if(origin == NULL)
 			return FILE_NULL;
 		std::string out = origin;
+		if(!out.ends_with(".CubeAsm")) {
+			out += ".CubeAsm";
+		}
 		replace_all(out, "\\", "/");
 		return out;
 	}
